@@ -12,5 +12,5 @@ Projeto desenvolvido pelas integrantes:
 * Silvia Diniz
 
 ## 🔗 Onde Acessar
-* **Repositório da API (Back-end):** [COLOQUE O LINK DO GITHUB DA API AQUI]
-* **Repositório da Interface (Front-end):** [COLOQUE O LINK DO GITHUB DO FRONT AQUI]
+* Front-End (Angular): [GerenciamentoTarefasFront](https://github.com/KCastro-r/GerenciamentoTarefasFront)
+* Back-End (.NET Core API): [GerenciamentoTarefasApi](https://github.com/KCastro-r/GerenciamentoTarefasApi)
