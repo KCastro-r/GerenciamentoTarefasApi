@@ -17,4 +17,6 @@ public class Usuario
     [Required(ErrorMessage = "A senha é obrigatória.")]
     [MinLength(6, ErrorMessage = "A senha deve ter pelo menos 6 caracteres.")]
     public string Senha { get; set; } = string.Empty;
+
+    public ICollection<Tarefa> Tarefas { get; set; } = new List<Tarefa>();
 }
