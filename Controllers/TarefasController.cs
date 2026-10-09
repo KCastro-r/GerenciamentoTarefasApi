@@ -19,19 +19,13 @@ namespace GerenciamentoTarefasApi.Controllers
         [HttpGet("usuario/{usuarioId:int}")]
         public async Task<IActionResult> ObterPorUsuario(int usuarioId)
         {
-            var tarefasServico = await _service.ObterTarefasDoUsuarioAsync(usuarioId);
+            // O QUE ALTEREI: o service já devolve TarefaDto completo, com Id e Concluida.
+            // Antes, o controller criava novos TarefaDto só com Titulo, Descricao,
+            // DataVencimento e UsuarioId. Sem o Id, o front não conseguia editar,
+            // concluir nem excluir. Agora devolvemos o resultado do service direto.
+            var tarefas = await _service.ObterTarefasDoUsuarioAsync(usuarioId);
 
-            // Mapeamento das tarefas para o TarefaDto
-            var tarefasDto = tarefasServico.Select(t => new TarefaDto
-            {
-            
-                Titulo = t.Titulo,
-                Descricao = t.Descricao,
-                DataVencimento = t.DataVencimento,
-                UsuarioId = t.UsuarioId
-            });
-
-            return Ok(ApiResponse<IEnumerable<TarefaDto>>.Ok(tarefasDto));
+            return Ok(ApiResponse<IEnumerable<TarefaDto>>.Ok(tarefas));
         }
 
         [HttpPost]
